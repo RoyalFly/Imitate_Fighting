@@ -3,4 +3,6 @@ project(Imitate_Fighting)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Imitate_Fighting main.cpp)
+add_executable(Imitate_Fighting Src/main.cpp
+        Inc/robot.h
+        Src/robot.cpp)

@@ -2,11 +2,11 @@
 // Created by 98383 on 2023/10/3.
 //
 
-#include "..\Inc\robot.h"
 #include "..\Inc\Architect.h"
 #include "..\Inc\main.h"
+#include "..\Inc\robot.h"
 
-void Tick_Simulate(){
+void Tick_Simulate() {
     Action_Hero(Red[0]);
     Action_Hero(Blue[0]);
     Action_Engineer(Red[1]);

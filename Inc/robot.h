@@ -6,19 +6,19 @@
 #define IMITATE_FIGHTING_ROBOT_H
 
 
-struct RobotPos{
+struct RobotPos {
     float x;
     float y;
 };
 
-RobotPos* moveRobot(RobotPos *pos,float dx,float dy);
+RobotPos *moveRobot(RobotPos *pos, float dx, float dy);
 
-struct RobotHP{
+struct RobotHP {
     int hp;
     int max_hp;
 };
 
-typedef enum{
+typedef enum {
     Engineer,
     Infantry,
     Sentinel,
@@ -30,7 +30,7 @@ typedef enum {
     Blue_Team
 } CampTypeDef;
 
-struct Robot{
+struct Robot {
     RobotTypeDef Robot_Type;
     RobotHP HP_State;
     RobotPos Pos_State;

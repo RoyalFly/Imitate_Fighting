@@ -5,4 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Imitate_Fighting Src/main.cpp
         Inc/robot.h
-        Src/robot.cpp)
+        Src/robot.cpp
+        Inc/main.h
+        Src/robot_init.cpp
+        Inc/Architect.h
+        Src/Architect_Init.cpp
+)

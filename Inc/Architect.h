@@ -4,18 +4,19 @@
 
 #ifndef IMITATE_FIGHTING_ARCHITECT_H
 #define IMITATE_FIGHTING_ARCHITECT_H
+#include "robot.h"
 
 struct Base{
     int HP;
     bool Armour;
-    float Pos_x,Pos_y;
+    RobotPos Pos_State;
 };
 
 Base Red_Base,Blue_Base;
 
 struct Tower{
     int HP;
-    float Pos_x,Pos_y;
+    RobotPos Pos_State;
 };
 
 Tower Red_Tower,Blue_Tower;

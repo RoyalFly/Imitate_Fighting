@@ -34,7 +34,7 @@ struct Robot {
     RobotTypeDef Robot_Type;
     RobotHP HP_State;
     RobotPos Pos_State;
-    int Remaining_Ammo;
+    int Remaining_Ammo; //剩余弹药
     float Self_Aiming_Para;
     int Robot_Level;
     int Robot_Exp;

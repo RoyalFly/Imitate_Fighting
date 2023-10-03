@@ -16,7 +16,7 @@ void Robot_Init(){
     Red[0].HP_State={150,150};
     Red[0].Pos_State={0,0};
     Red[0].Remaining_Ammo=30;
-    Red[0].Self_Aiming_Para=0.6;
+    Red[0].Self_Aiming_Para=0.9;
     Red[0].Robot_Level=1;
     Red[0].Robot_Exp=0;
     Red[0].Robot_Speed=1; //单位m/tick

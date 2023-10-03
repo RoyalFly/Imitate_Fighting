@@ -12,56 +12,70 @@
 //Todo:有空的话考虑维护射速问题，不然Hero实在是太IMBA;有空添加升级系统
 
 void Robot_Init(){
-    Red_r1.Robot_Type=Hero;
-    Red_r1.HP_State={150,150};
-    Red_r1.Pos_State={0,0};
-    Red_r1.Remaining_Ammo=30;
-    Red_r1.Self_Aiming_Para=0.6;
-    Red_r1.Robot_Level=1;
-    Red_r1.Robot_Exp=0;
-    Red_r1.Robot_Speed=65;
+    Red[0].Robot_Type=Hero;
+    Red[0].HP_State={150,150};
+    Red[0].Pos_State={0,0};
+    Red[0].Remaining_Ammo=30;
+    Red[0].Self_Aiming_Para=0.6;
+    Red[0].Robot_Level=1;
+    Red[0].Robot_Exp=0;
+    Red[0].Robot_Speed=1; //单位m/tick
 
-    Red_r2.Robot_Type=Engineer;
-    Red_r2.HP_State={250,250};
-    Red_r2.Pos_State={0,0};
-    Red_r2.Self_Aiming_Para=0;
-    Red_r2.Remaining_Ammo=0;
-    Red_r2.Robot_Level=0;
-    Red_r2.Robot_Exp=0;
-    Red_r2.Robot_Speed=100;
+    Red[1].Robot_Type=Engineer;
+    Red[1].HP_State={250,250};
+    Red[1].Pos_State={0,0};
+    Red[1].Self_Aiming_Para=0;
+    Red[1].Remaining_Ammo=0;
+    Red[1].Robot_Level=0;
+    Red[1].Robot_Exp=0;
+    Red[1].Robot_Speed=2;
 
-    Red_r3.Robot_Type=Infantry;//方便起见我把所有的步兵都改成平衡步兵了
-    Red_r3.HP_State={300,300};
-    Red_r3.Pos_State={0,0};
-    Red_r3.Remaining_Ammo=150;
-    Red_r3.Self_Aiming_Para=0.8;
-    Red_r3.Robot_Level=1;
-    Red_r3.Robot_Exp=0;
-    Red_r3.Robot_Speed=100;
+    Red[2].Robot_Type=Infantry;//方便起见我把所有的步兵都改成平衡步兵了
+    Red[2].HP_State={300,300};
+    Red[2].Pos_State={0,0};
+    Red[2].Remaining_Ammo=150;
+    Red[2].Self_Aiming_Para=0.8;
+    Red[2].Robot_Level=1;
+    Red[2].Robot_Exp=0;
+    Red[2].Robot_Speed=2;
 
-    Red_r4=Red_r3;
-    Red_r5=Red_r3;
+    Red[3]=Red[2];
+    Red[4]=Red[2];
 
-    Red_r6.Robot_Type=Sentinel;
-    Red_r6.HP_State={1000,1000};
-    Red_r6.Pos_State={0,0};
-    Red_r6.Self_Aiming_Para=0.7;
-    Red_r6.Remaining_Ammo=600;
-    Red_r6.Robot_Level=0;
-    Red_r6.Robot_Exp=0;
-    Red_r6.Robot_Speed=150;
+    Red[5].Robot_Type=Sentinel;
+    Red[5].HP_State={1000,1000};
+    Red[5].Pos_State={0,0};
+    Red[5].Self_Aiming_Para=0.7;
+    Red[5].Remaining_Ammo=600;
+    Red[5].Robot_Level=0;
+    Red[5].Robot_Exp=0;
+    Red[5].Robot_Speed=3;
 
-    Blue_r1=Red_r1;
-    Blue_r2=Red_r2;
-    Blue_r3=Red_r3;
-    Blue_r4=Red_r4;
-    Blue_r5=Red_r5;
-    Blue_r6=Red_r6;
+    Blue[0]=Red[0];
+    Blue[1]=Red[1];
+    Blue[2]=Red[2];
+    Blue[3]=Red[3];
+    Blue[4]=Red[4];
+    Blue[5]=Red[5];
 
-    Blue_r1.Pos_State={28,15};
-    Blue_r2.Pos_State={28,15};
-    Blue_r3.Pos_State={28,15};
-    Blue_r4.Pos_State={28,15};
-    Blue_r5.Pos_State={28,15};
-    Blue_r6.Pos_State={28,15};
+    Blue[0].Pos_State={28,15};
+    Blue[1].Pos_State={28,15};
+    Blue[2].Pos_State={28,15};
+    Blue[3].Pos_State={28,15};
+    Blue[4].Pos_State={28,15};
+    Blue[5].Pos_State={28,15};
+
+    Red[0].Robot_Camp=Red_Team;
+    Red[1].Robot_Camp=Red_Team;
+    Red[2].Robot_Camp=Red_Team;
+    Red[3].Robot_Camp=Red_Team;
+    Red[4].Robot_Camp=Red_Team;
+    Red[5].Robot_Camp=Red_Team;
+
+    Blue[0].Robot_Camp=Blue_Team;
+    Blue[1].Robot_Camp=Blue_Team;
+    Blue[2].Robot_Camp=Blue_Team;
+    Blue[3].Robot_Camp=Blue_Team;
+    Blue[4].Robot_Camp=Blue_Team;
+    Blue[5].Robot_Camp=Blue_Team;
 }

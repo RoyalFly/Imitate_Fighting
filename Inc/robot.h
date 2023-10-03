@@ -25,6 +25,11 @@ typedef enum{
     Hero
 } RobotTypeDef;
 
+typedef enum {
+    Red_Team,
+    Blue_Team
+} CampTypeDef;
+
 struct Robot{
     RobotTypeDef Robot_Type;
     RobotHP HP_State;
@@ -34,9 +39,10 @@ struct Robot{
     int Robot_Level;
     int Robot_Exp;
     float Robot_Speed;
+    CampTypeDef Robot_Camp;
 };
 
-Robot Red_r1,Red_r2,Red_r3,Red_r4,Red_r5,Red_r6;
-Robot Blue_r1,Blue_r2,Blue_r3,Blue_r4,Blue_r5,Blue_r6;
+Robot Red[6];
+Robot Blue[6];
 
 #endif//IMITATE_FIGHTING_ROBOT_H

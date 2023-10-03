@@ -10,4 +10,6 @@ add_executable(Imitate_Fighting Src/main.cpp
         Src/robot_init.cpp
         Inc/Architect.h
         Src/Architect_Init.cpp
+        Src/Tick_Simulate.cpp
+        Src/Hero.cpp
 )

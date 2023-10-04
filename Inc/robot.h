@@ -43,6 +43,7 @@ struct Robot {
     CampTypeDef Robot_Camp;
     const char *Robot_Number;
     int Damage;
+    int Revive_Time;
 };
 
 Robot Red[6];

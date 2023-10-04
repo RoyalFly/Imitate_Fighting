@@ -42,6 +42,7 @@ struct Robot {
     float Robot_Speed;
     CampTypeDef Robot_Camp;
     const char *Robot_Number;
+    int Damage;
 };
 
 Robot Red[6];

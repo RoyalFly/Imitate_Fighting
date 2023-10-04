@@ -10,6 +10,8 @@
 #include <random>
 #include <string>
 
+const int Re_CD=30; //复活时间
+
 float dist(RobotPos obj1, RobotPos obj2) {
     return (float) sqrt((double) (obj1.x - obj2.x) * (obj1.x - obj2.x) + (obj1.y - obj2.y) * (obj1.y - obj2.y));
 }
@@ -25,7 +27,7 @@ float min(float x,float y){
     else return x;
 }
 
-RobotPos Move_to(Robot Present_Robot, RobotPos Des_Pos) {
+RobotPos Move_to(Robot Present_Robot, RobotPos Des_Pos) {  //移动
     float dis = dist(Present_Robot.Pos_State, Des_Pos);
     float vec_x = (Present_Robot.Pos_State.x - Des_Pos.x) / dis;
     float vec_y = (Present_Robot.Pos_State.y - Des_Pos.y) / dis;
@@ -35,7 +37,7 @@ RobotPos Move_to(Robot Present_Robot, RobotPos Des_Pos) {
     return End_Pos;
 }
 
-void Attack_Tower(Robot Attacker, Tower *Aimed_Tower, float Accuracy) {
+void Attack_Tower(Robot Attacker, Tower *Aimed_Tower, float Accuracy) {  //进攻敌方先锋塔
     srand(time(nullptr));
     int tmp = rand() % 1000;
     float judge = (float) tmp / 1000;
@@ -57,7 +59,7 @@ void Attack_Tower(Robot Attacker, Tower *Aimed_Tower, float Accuracy) {
     }
 }
 
-void Attack_Base(Robot Attacker, Base *Aimed_Base, float Accuracy) {
+void Attack_Base(Robot Attacker, Base *Aimed_Base, float Accuracy) { //进攻敌方基地
     srand(time(nullptr));
     int tmp = rand() % 1000;
     float judge = (float) tmp / 1000;
@@ -86,7 +88,7 @@ void Attack_Base(Robot Attacker, Base *Aimed_Base, float Accuracy) {
     }
 }
 
-Robot* Searching_Enemy(Robot Present_Robot){
+Robot* Searching_Enemy(Robot Present_Robot){  // 索敌
     Robot* Aim;
     if (Present_Robot.Robot_Camp == Red_Team){
         float Min_Dist=100000;
@@ -118,4 +120,27 @@ Robot* Searching_Enemy(Robot Present_Robot){
         }
     }
     return Aim;
+}
+
+void Attack_Robot(Robot Attacker,Robot* Aim,float Accuracy){
+    srand(time(nullptr));
+    int tmp = rand() % 1000;
+    float judge = (float) tmp / 1000;
+    if (judge > Accuracy) {
+        puts(Attacker.Robot_Number);
+        printf(" fail to shoot ");
+        puts(Aim->Robot_Number);
+        printf("\n");
+        return;
+    }
+    puts(Attacker.Robot_Number);
+    printf("hits ");
+    puts(Aim->Robot_Number);
+    printf(",whose HP drops from %d to %d\n", Aim->HP_State.hp, max(Aim->HP_State.hp - Attacker.Damage, 0));
+    Aim->HP_State.hp = max(0, Aim->HP_State.hp - Attacker.Damage);
+    if (Aim->HP_State.hp == 0) {
+        puts(Aim->Robot_Number);
+        printf("has been destroyed\n");
+        Aim->Revive_Time=Re_CD;
+    }
 }

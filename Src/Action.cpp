@@ -20,6 +20,11 @@ int max(int x, int y) {
         return y;
 }
 
+float min(float x,float y){
+    if (x<y) return y;
+    else return x;
+}
+
 RobotPos Move_to(Robot Present_Robot, RobotPos Des_Pos) {
     float dis = dist(Present_Robot.Pos_State, Des_Pos);
     float vec_x = (Present_Robot.Pos_State.x - Des_Pos.x) / dis;
@@ -79,4 +84,38 @@ void Attack_Base(Robot Attacker, Base *Aimed_Base, float Accuracy) {
             return;
         }
     }
+}
+
+Robot* Searching_Enemy(Robot Present_Robot){
+    Robot* Aim;
+    if (Present_Robot.Robot_Camp == Red_Team){
+        float Min_Dist=100000;
+        Aim=&Blue[0];
+        Aim->Robot_Level=-1;
+        for (int i=0;i<=5;i++){
+            if (Blue[i].HP_State.hp == 0){
+                continue;
+            }
+            float dis=dist(Present_Robot.Pos_State,Blue[i].Pos_State);
+            if (dis<Min_Dist){
+                Min_Dist=dis;
+                Aim=&Blue[i];
+            }
+        }
+    } else {
+        float Min_Dist=100000;
+        Aim=&Red[0];
+        Aim->Robot_Level=-1;
+        for (int i=0;i<=5;i++){
+            if (Red[i].HP_State.hp == 0){
+                continue;
+            }
+            float dis=dist(Present_Robot.Pos_State,Red[i].Pos_State);
+            if (dis<Min_Dist){
+                Min_Dist=dis;
+                Aim=&Red[i];
+            }
+        }
+    }
+    return Aim;
 }

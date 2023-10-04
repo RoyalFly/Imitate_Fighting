@@ -41,7 +41,7 @@ struct Robot {
     int Robot_Exp;
     float Robot_Speed;
     CampTypeDef Robot_Camp;
-    std::string Robot_Number;
+    const char *Robot_Number;
 };
 
 Robot Red[6];

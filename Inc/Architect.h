@@ -14,7 +14,7 @@ struct Base {
     CampTypeDef Camp;
 };
 
-Base Red_Base, Blue_Base;
+static Base Red_Base, Blue_Base;
 
 struct Tower {
     int HP;
@@ -22,6 +22,6 @@ struct Tower {
     const char* Name;
 };
 
-Tower Red_Tower, Blue_Tower;
+static Tower Red_Tower, Blue_Tower;
 
 #endif//IMITATE_FIGHTING_ARCHITECT_H

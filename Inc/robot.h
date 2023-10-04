@@ -46,7 +46,6 @@ struct Robot {
     int Revive_Time;
 };
 
-Robot Red[6];
-Robot Blue[6];
+static Robot Red[6],Blue[6];
 
 #endif//IMITATE_FIGHTING_ROBOT_H

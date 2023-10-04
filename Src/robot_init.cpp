@@ -11,7 +11,7 @@
 //简化需要，机器人的底盘保持全功率进行
 //Todo:有空的话考虑维护射速问题，不然Hero实在是太IMBA;有空添加升级系统
 
-void Robot_Init(){
+static void Robot_Init(){
     Red[0].Robot_Type=Hero;
     Red[0].HP_State={150,150};
     Red[0].Pos_State={0,0};

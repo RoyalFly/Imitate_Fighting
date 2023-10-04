@@ -21,6 +21,9 @@ static void Action_Hero(Robot* Present_Hero) {
     }
     if (Present_Hero->Revive_Time!=0){ //等待复活
         Present_Hero->Revive_Time--;
+        if (Present_Hero->Revive_Time == 0){
+            Present_Hero->HP_State.hp=Present_Hero->HP_State.max_hp;
+        }
         return;
     }
     if (Present_Hero->Robot_Camp == Red_Team) {

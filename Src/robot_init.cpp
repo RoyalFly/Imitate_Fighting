@@ -45,7 +45,7 @@ static void Robot_Init(){
     Red[2].Robot_Exp=0;
     Red[2].Robot_Speed=2;
     Red[2].Robot_Number="Red3";
-    Red[2].Damage=10;
+    Red[2].Damage=50;
     Red[2].Revive_Time=0;
 
     Red[3]=Red[2];
@@ -62,7 +62,7 @@ static void Robot_Init(){
     Red[5].Robot_Exp=0;
     Red[5].Robot_Speed=3;
     Red[5].Robot_Number="Red6";
-    Red[5].Damage=10;
+    Red[5].Damage=50;
     Red[5].Revive_Time=0;
 
     Blue[0]=Red[0];

@@ -22,11 +22,16 @@ static int max(int x, int y) {
 
 static RobotPos Move_to(Robot* Present_Robot, RobotPos Des_Pos) {  //移动
     float dis = dist(Present_Robot->Pos_State, Des_Pos);
+    float tmp=Present_Robot->Robot_Speed;
+    if (dis < Present_Robot->Robot_Speed){
+        Present_Robot->Robot_Speed=dis;
+    }
     float vec_x = (-Present_Robot->Pos_State.x + Des_Pos.x) / dis;
     float vec_y = (-Present_Robot->Pos_State.y + Des_Pos.y) / dis;
     RobotPos End_Pos = {Present_Robot->Pos_State.x+vec_x * Present_Robot->Robot_Speed, Present_Robot->Pos_State.y+vec_y * Present_Robot->Robot_Speed};
     puts(Present_Robot->Robot_Number);
     std::printf("from %.2f,%.2f to %.2f,%.2f\n", Present_Robot->Pos_State.x, Present_Robot->Pos_State.y, End_Pos.x, End_Pos.y);
+    Present_Robot->Robot_Speed=tmp;
     return End_Pos;
 }
 

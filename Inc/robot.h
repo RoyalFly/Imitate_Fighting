@@ -5,6 +5,7 @@
 #ifndef IMITATE_FIGHTING_ROBOT_H
 #define IMITATE_FIGHTING_ROBOT_H
 
+#include <string>
 
 struct RobotPos {
     float x;
@@ -40,6 +41,7 @@ struct Robot {
     int Robot_Exp;
     float Robot_Speed;
     CampTypeDef Robot_Camp;
+    std::string Robot_Number;
 };
 
 Robot Red[6];

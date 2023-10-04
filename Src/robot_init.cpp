@@ -20,6 +20,7 @@ void Robot_Init(){
     Red[0].Robot_Level=1;
     Red[0].Robot_Exp=0;
     Red[0].Robot_Speed=1; //单位m/tick
+    Red[0].Robot_Number="Red1";
 
     Red[1].Robot_Type=Engineer;
     Red[1].HP_State={250,250};
@@ -29,6 +30,7 @@ void Robot_Init(){
     Red[1].Robot_Level=0;
     Red[1].Robot_Exp=0;
     Red[1].Robot_Speed=2;
+    Red[1].Robot_Number="Red2";
 
     Red[2].Robot_Type=Infantry;//方便起见我把所有的步兵都改成平衡步兵了
     Red[2].HP_State={300,300};
@@ -38,9 +40,12 @@ void Robot_Init(){
     Red[2].Robot_Level=1;
     Red[2].Robot_Exp=0;
     Red[2].Robot_Speed=2;
+    Red[2].Robot_Number="Red3";
 
     Red[3]=Red[2];
+    Red[3].Robot_Number="Red4";
     Red[4]=Red[2];
+    Red[4].Robot_Number="Red5";
 
     Red[5].Robot_Type=Sentinel;
     Red[5].HP_State={1000,1000};
@@ -50,6 +55,7 @@ void Robot_Init(){
     Red[5].Robot_Level=0;
     Red[5].Robot_Exp=0;
     Red[5].Robot_Speed=3;
+    Red[5].Robot_Number="Red6";
 
     Blue[0]=Red[0];
     Blue[1]=Red[1];
@@ -78,4 +84,11 @@ void Robot_Init(){
     Blue[3].Robot_Camp=Blue_Team;
     Blue[4].Robot_Camp=Blue_Team;
     Blue[5].Robot_Camp=Blue_Team;
+
+    Blue[0].Robot_Number="Blue1";
+    Blue[1].Robot_Number="Blue2";
+    Blue[2].Robot_Number="Blue3";
+    Blue[3].Robot_Number="Blue4";
+    Blue[4].Robot_Number="Blue5";
+    Blue[5].Robot_Number="Blue6";
 }

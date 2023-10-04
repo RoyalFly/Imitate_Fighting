@@ -10,7 +10,7 @@ const float Accuracy_Loss = 0.03;// 每远离目标1m，精准度下降0.03
 extern int tick;
 const int Shoot_Interval = 3;
 
-static void Action_Hero(Robot* Present_Hero) {
+void Action_Hero(Robot* Present_Hero) {
     static int Last_Shoot_Tick_Red = -5;
     static int Last_Shoot_Tick_Blue = -5;
     if (tick - Last_Shoot_Tick_Red < Shoot_Interval && Present_Hero->Robot_Camp == Red_Team) { //枪口冷却

@@ -14,14 +14,12 @@ struct Base {
     CampTypeDef Camp;
 };
 
-static Base Red_Base, Blue_Base;
-
 struct Tower {
     int HP;
     RobotPos Pos_State;
     const char* Name;
 };
 
-static Tower Red_Tower, Blue_Tower;
+void Architect_Init();
 
 #endif//IMITATE_FIGHTING_ARCHITECT_H

@@ -1,8 +1,6 @@
 #include "../Inc/robot.h"
-#include "Architect_init.cpp"
-#include "Tick_Simulate.cpp"
-#include "random"
-#include "robot_init.cpp"
+#include "..\Inc\Architect.h"
+#include "..\Inc\Tick_Simulate.h"
 
 int tick = 0;//作为模拟系统的计时单位，一些长于1tick的操作需要基于这个变量
 

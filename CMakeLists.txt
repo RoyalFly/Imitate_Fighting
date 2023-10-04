@@ -7,9 +7,12 @@ add_executable(Imitate_Fighting Src/main.cpp
         Inc/robot.h
         Src/robot.cpp
         Inc/main.h
-        Src/robot_init.cpp
         Inc/Architect.h
-        Src/Architect_Init.cpp
+        Src/Architect.cpp
         Src/Tick_Simulate.cpp
         Src/Hero.cpp
+        Src/Sentinel.cpp
+        Inc/Action.h
+        Inc/Sentinel.h
+        Inc/Tick_Simulate.h
 )

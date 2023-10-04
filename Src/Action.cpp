@@ -8,19 +8,23 @@
 #include <string>
 #include <chrono>
 
-const int Re_CD=30; //复活时间
+static int Re_CD=60; //复活时间
 
-static float dist(RobotPos obj1, RobotPos obj2) {
+extern Robot Red[7],Blue[7];
+extern Tower Red_Tower,Blue_Tower;
+extern Base Red_Base,Blue_Base;
+
+float dist(RobotPos obj1, RobotPos obj2) {
     return (float) sqrt((double) (obj1.x - obj2.x) * (obj1.x - obj2.x) + (obj1.y - obj2.y) * (obj1.y - obj2.y));
 }
 
-static int max(int x, int y) {
+int max(int x, int y) {
     if (x > y) return x;
     else
         return y;
 }
 
-static RobotPos Move_to(Robot* Present_Robot, RobotPos Des_Pos) {  //移动
+RobotPos Move_to(Robot* Present_Robot, RobotPos Des_Pos) {  //移动
     float dis = dist(Present_Robot->Pos_State, Des_Pos);
     float tmp=Present_Robot->Robot_Speed;
     if (dis < Present_Robot->Robot_Speed){
@@ -35,7 +39,7 @@ static RobotPos Move_to(Robot* Present_Robot, RobotPos Des_Pos) {  //移动
     return End_Pos;
 }
 
-static void Attack_Tower(Robot* Attacker, Tower *Aimed_Tower, float Accuracy) {  //进攻敌方先锋塔
+void Attack_Tower(Robot* Attacker, Tower *Aimed_Tower, float Accuracy) {  //进攻敌方先锋塔
     srand( std::chrono::system_clock::now().time_since_epoch().count() );
     int tmp=rand()%1000;
     float judge=(float)tmp/1000;
@@ -58,7 +62,7 @@ static void Attack_Tower(Robot* Attacker, Tower *Aimed_Tower, float Accuracy) { 
     }
 }
 
-static void Attack_Base(Robot* Attacker, Base *Aimed_Base, float Accuracy) { //进攻敌方基地
+void Attack_Base(Robot* Attacker, Base *Aimed_Base, float Accuracy) { //进攻敌方基地
     srand( std::chrono::system_clock::now().time_since_epoch().count() );
     int tmp=rand()%1000;
     float judge=(float)tmp/1000;
@@ -87,7 +91,7 @@ static void Attack_Base(Robot* Attacker, Base *Aimed_Base, float Accuracy) { //�
     }
 }
 
-static Robot* Searching_Enemy(Robot* Present_Robot){  // 索敌
+Robot* Searching_Enemy(Robot* Present_Robot){  // 索敌
     Robot* Aim;
     if (Present_Robot->Robot_Camp == Red_Team){
         float Min_Dist=100000;
@@ -119,7 +123,7 @@ static Robot* Searching_Enemy(Robot* Present_Robot){  // 索敌
     return Aim;
 }
 
-static void Attack_Robot(Robot* Attacker,Robot* Aim,float Accuracy){
+void Attack_Robot(Robot* Attacker,Robot* Aim,float Accuracy){
     srand( std::chrono::system_clock::now().time_since_epoch().count() );
     int tmp=rand()%1000;
     float judge=(float)tmp/1000;

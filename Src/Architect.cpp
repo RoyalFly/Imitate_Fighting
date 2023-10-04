@@ -5,9 +5,12 @@
 #include "..\Inc\Architect.h"
 
 //总体场地28m x 15m
-static float width = 15, length = 28;
+float width = 15, length = 28;
 
-static void Architect_Init() {
+Tower Red_Tower,Blue_Tower;
+Base Red_Base,Blue_Base;
+
+void Architect_Init() {
     Red_Base.Pos_State.x = 0;
     Red_Base.Pos_State.y = (float) 0.5 * width;
     Red_Base.Armour = true;

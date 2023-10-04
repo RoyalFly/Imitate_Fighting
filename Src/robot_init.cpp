@@ -13,7 +13,7 @@
 
 static void Robot_Init(){
     Red[0].Robot_Type=Hero;
-    Red[0].HP_State={150,150};
+    Red[0].HP_State={200,200};
     Red[0].Pos_State={0,0};
     Red[0].Remaining_Ammo=30;
     Red[0].Self_Aiming_Para=0.9;

@@ -10,6 +10,7 @@ struct Base {
     int HP;
     bool Armour;
     RobotPos Pos_State;
+    const char* Name;
 };
 
 Base Red_Base, Blue_Base;
@@ -17,6 +18,7 @@ Base Red_Base, Blue_Base;
 struct Tower {
     int HP;
     RobotPos Pos_State;
+    const char* Name;
 };
 
 Tower Red_Tower, Blue_Tower;

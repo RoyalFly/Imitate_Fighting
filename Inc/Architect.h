@@ -11,6 +11,7 @@ struct Base {
     bool Armour;
     RobotPos Pos_State;
     const char* Name;
+    CampTypeDef Camp;
 };
 
 Base Red_Base, Blue_Base;

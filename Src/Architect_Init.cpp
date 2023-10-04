@@ -13,11 +13,13 @@ void Architect_Init() {
     Red_Base.Armour = true;
     Red_Base.HP = 5000;
     Red_Base.Name = "Red Base";
+    Red_Base.Camp=Red_Team;
     Blue_Base.Pos_State.x = length;
     Blue_Base.Pos_State.y = (float) 0.5 * width;
     Blue_Base.Armour = true;
     Blue_Base.HP = 5000;
     Blue_Base.Name = "Blue Base";
+    Blue_Base.Camp=Blue_Team;
 
     Red_Tower.Pos_State.x = (float) 1.0 / 3 * length;
     Red_Tower.Pos_State.y = (float) 1.0 / 3 * width;

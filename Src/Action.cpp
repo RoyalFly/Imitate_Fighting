@@ -86,8 +86,7 @@ static Robot* Searching_Enemy(Robot* Present_Robot){  // 索敌
     Robot* Aim;
     if (Present_Robot->Robot_Camp == Red_Team){
         float Min_Dist=100000;
-        Aim=&Blue[0];
-        Aim->Robot_Level=-1;
+        Aim=&Blue[6];
         for (int i=0;i<=5;i++){
             if (Blue[i].HP_State.hp == 0){
                 continue;
@@ -100,8 +99,7 @@ static Robot* Searching_Enemy(Robot* Present_Robot){  // 索敌
         }
     } else {
         float Min_Dist=100000;
-        Aim=&Red[0];
-        Aim->Robot_Level=-1;
+        Aim=&Red[6];
         for (int i=0;i<=5;i++){
             if (Red[i].HP_State.hp == 0){
                 continue;

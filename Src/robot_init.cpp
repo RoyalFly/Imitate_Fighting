@@ -99,4 +99,7 @@ static void Robot_Init(){
     Blue[3].Robot_Number="Blue4";
     Blue[4].Robot_Number="Blue5";
     Blue[5].Robot_Number="Blue6";
+
+    Red[6].Robot_Level=-1;
+    Blue[6].Robot_Level=-1;
 }

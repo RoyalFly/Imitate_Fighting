@@ -15,4 +15,7 @@ add_executable(Imitate_Fighting Src/main.cpp
         Inc/Action.h
         Inc/Sentinel.h
         Inc/Tick_Simulate.h
+        Inc/Infantry.h
+        Inc/Infantry.h
+        Src/Infantry.cpp
 )

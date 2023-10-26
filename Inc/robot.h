@@ -12,8 +12,6 @@ struct RobotPos {
     float y;
 };
 
-RobotPos *moveRobot(RobotPos *pos, float dx, float dy);
-
 struct RobotHP {
     int hp;
     int max_hp;
@@ -31,21 +29,23 @@ typedef enum {
     Blue_Team
 } CampTypeDef;
 
-struct Robot {
+class Robot{
+private:
     RobotTypeDef Robot_Type;
-    RobotHP HP_State;
-    RobotPos Pos_State;
-    int Remaining_Ammo; //剩余弹药
-    float Self_Aiming_Para;
-    int Robot_Level;
-    int Robot_Exp;
-    float Robot_Speed;
+    RobotHP HP_State{};
+    RobotPos Pos_State{};
+    float Self_Aiming_Para{};
+    int Robot_Level{};
+    float Robot_Speed{};
     CampTypeDef Robot_Camp;
-    const char *Robot_Number;
-    int Damage;
-    int Revive_Time;
-};
+    const char *Robot_Number{};
+    int Damage{};
+    int Revive_Time{};
 
-void Robot_Init();
+    Robot(RobotTypeDef TYPE,RobotHP hp,RobotPos pos,float Self_Aiming_Para,int Robot_Level,float Robot_Speed,CampTypeDef Camp,const char *Robot_Number,int Damage,int Revive_Time);
+public:
+    Robot();
+    static void Robot_Init();
+};
 
 #endif//IMITATE_FIGHTING_ROBOT_H

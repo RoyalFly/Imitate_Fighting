@@ -11,97 +11,35 @@
 //简化需要，机器人的底盘保持全功率进行
 //Todo:有空的话考虑维护射速问题，不然Hero实在是太IMBA;有空添加升级系统
 
-Robot Red[7],Blue[7];
+Robot :: Robot()= default;
 
-void Robot_Init(){
-    Red[0].Robot_Type=Hero;
-    Red[0].HP_State={200,200};
-    Red[0].Pos_State={0,0};
-    Red[0].Remaining_Ammo=30;
-    Red[0].Self_Aiming_Para=0.9;
-    Red[0].Robot_Level=1;
-    Red[0].Robot_Exp=0;
-    Red[0].Robot_Speed=1; //单位m/tick
-    Red[0].Robot_Number="Red1";
-    Red[0].Damage=150;
-    Red[0].Revive_Time=0;
+Robot Red[7]{};
+Robot Blue[7]{};
 
-    Red[1].Robot_Type=Engineer;
-    Red[1].HP_State={250,250};
-    Red[1].Pos_State={0,0};
-    Red[1].Self_Aiming_Para=0;
-    Red[1].Remaining_Ammo=0;
-    Red[1].Robot_Level=0;
-    Red[1].Robot_Exp=0;
-    Red[1].Robot_Speed=2;
-    Red[1].Robot_Number="Red2";
-    Red[1].Damage=0;
-    Red[1].Revive_Time=0;
-
-    Red[2].Robot_Type=Infantry;//方便起见我把所有的步兵都改成平衡步兵了
-    Red[2].HP_State={300,300};
-    Red[2].Pos_State={0,0};
-    Red[2].Remaining_Ammo=150;
-    Red[2].Self_Aiming_Para=0.8;
-    Red[2].Robot_Level=1;
-    Red[2].Robot_Exp=0;
-    Red[2].Robot_Speed=2;
-    Red[2].Robot_Number="Red3";
-    Red[2].Damage=50;
-    Red[2].Revive_Time=0;
-
-    Red[3]=Red[2];
-    Red[3].Robot_Number="Red4";
-    Red[4]=Red[2];
-    Red[4].Robot_Number="Red5";
-
-    Red[5].Robot_Type=Sentinel;
-    Red[5].HP_State={1000,1000};
-    Red[5].Pos_State={0,0};
-    Red[5].Self_Aiming_Para=0.7;
-    Red[5].Remaining_Ammo=600;
-    Red[5].Robot_Level=0;
-    Red[5].Robot_Exp=0;
-    Red[5].Robot_Speed=3;
-    Red[5].Robot_Number="Red6";
-    Red[5].Damage=50;
-    Red[5].Revive_Time=0;
-
-    Blue[0]=Red[0];
-    Blue[1]=Red[1];
-    Blue[2]=Red[2];
-    Blue[3]=Red[3];
-    Blue[4]=Red[4];
-    Blue[5]=Red[5];
-
-    Blue[0].Pos_State={28,15};
-    Blue[1].Pos_State={28,15};
-    Blue[2].Pos_State={28,15};
-    Blue[3].Pos_State={28,15};
-    Blue[4].Pos_State={28,15};
-    Blue[5].Pos_State={28,15};
-
-    Red[0].Robot_Camp=Red_Team;
-    Red[1].Robot_Camp=Red_Team;
-    Red[2].Robot_Camp=Red_Team;
-    Red[3].Robot_Camp=Red_Team;
-    Red[4].Robot_Camp=Red_Team;
-    Red[5].Robot_Camp=Red_Team;
-
-    Blue[0].Robot_Camp=Blue_Team;
-    Blue[1].Robot_Camp=Blue_Team;
-    Blue[2].Robot_Camp=Blue_Team;
-    Blue[3].Robot_Camp=Blue_Team;
-    Blue[4].Robot_Camp=Blue_Team;
-    Blue[5].Robot_Camp=Blue_Team;
-
-    Blue[0].Robot_Number="Blue1";
-    Blue[1].Robot_Number="Blue2";
-    Blue[2].Robot_Number="Blue3";
-    Blue[3].Robot_Number="Blue4";
-    Blue[4].Robot_Number="Blue5";
-    Blue[5].Robot_Number="Blue6";
-
-    Red[6].Robot_Level=-1;
-    Blue[6].Robot_Level=-1;
+Robot::Robot(RobotTypeDef TYPE,RobotHP hp, RobotPos pos, float Self_Aiming, int Robot_Level, float Robot_Sp, CampTypeDef Camp, const char *Robot_Num, int Dam, int Revive_Tim) {
+    Robot_Type=TYPE;
+    HP_State=hp;
+    Pos_State=pos;
+    Self_Aiming_Para=Self_Aiming;
+    Robot_Speed=Robot_Sp;
+    Robot_Camp=Camp;
+    Robot_Number=Robot_Num;
+    Damage=Dam;
+    Revive_Time=Revive_Tim;
+}
+void Robot :: Robot_Init(){
+    Red[0]=Robot(Hero,{200,200},{0,0},0.9,1,1,Red_Team,"Red1",150,0);
+    Blue[0]=Robot(Hero,{200,200},{28,15},0.9,1,1,Blue_Team,"Blue1",150,0);
+    Red[1]=Robot(Engineer,{250,250},{0,0},0,0,2,Red_Team,"Red2",0,0);
+    Blue[1]=Robot(Engineer,{250,250},{28,15},0,0,2,Blue_Team,"Blue2",0,0);
+    Red[2]=Robot(Infantry,{300,300},{0,0},0.8,1,2,Red_Team,"Red3",50,0);
+    Blue[2]=Robot(Infantry,{300,300},{28,15},0.8,1,2,Blue_Team,"Blue3",50,0);
+    Red[3]=Robot(Infantry,{300,300},{0,0},0.8,1,2,Red_Team,"Red4",50,0);
+    Blue[3]=Robot(Infantry,{300,300},{28,15},0.8,1,2,Blue_Team,"Blue4",50,0);
+    Red[4]=Robot(Infantry,{300,300},{0,0},0.8,1,2,Red_Team,"Red5",50,0);
+    Blue[4]=Robot(Infantry,{300,300},{28,15},0.8,1,2,Blue_Team,"Blue5",50,0);
+    Red[5]=Robot(Sentinel,{1000,1000},{0,0},0.7,0,3,Red_Team,"Red6",50,0);
+    Blue[5]=Robot(Sentinel,{1000,1000},{28,15},0.7,0,3,Blue_Team,"Blue6",50,0);
+    Red[6]=Robot(Engineer,{0,0},{0,0},0,-1,0,Red_Team,"qwq",0,0);
+    Blue[6]=Robot(Engineer,{0,0},{0,0},0,-1,0,Blue_Team,"qwq",0,0);
 }

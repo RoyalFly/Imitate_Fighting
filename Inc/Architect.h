@@ -6,18 +6,16 @@
 #define IMITATE_FIGHTING_ARCHITECT_H
 #include "robot.h"
 
-struct Base {
+class Architecture{
+private:
     int HP;
-    bool Armour;
     RobotPos Pos_State;
     const char* Name;
     CampTypeDef Camp;
-};
-
-struct Tower {
-    int HP;
-    RobotPos Pos_State;
-    const char* Name;
+    Architecture(int hp,RobotPos pos,const char* name, CampTypeDef camp);
+public:
+    static void Architect_Init();
+    Architecture();
 };
 
 void Architect_Init();

@@ -10,28 +10,28 @@
 
 const float Accuracy_Loss = 0.05;
 extern int tick;
-extern Tower Red_Tower,Blue_Tower;
-extern Base Red_Base,Blue_Base;
+extern Architecture Red_Tower,Blue_Tower;
+extern Architecture Red_Base,Blue_Base;
 
 void Action_Sentinel(Robot* Present_Robot) {
-    if (Present_Robot->HP_State.hp == 0) {
+    if (Present_Robot->Get_HP() == 0) {
         return;
     }
-    if (Present_Robot->Robot_Camp == Red_Team) {
-        if (Present_Robot->Pos_State.x != Red_Tower.Pos_State.x || Present_Robot->Pos_State.y != Red_Tower.Pos_State.y) {
-            Present_Robot->Pos_State=Move_to(Present_Robot, Red_Tower.Pos_State);
+    if (Present_Robot->Get_Camp() == Red_Team) {
+        if (Present_Robot->Get_Pos().x != Red_Tower.Get_Pos().x || Present_Robot->Get_Pos().y != Red_Tower.Get_Pos().y) {
+            Present_Robot->Move_to(Present_Robot, Red_Tower.Get_Pos());
             return;
         }
-        Robot *Aim = Searching_Enemy(Present_Robot);
-        float Current_Accuracy=-Accuracy_Loss* dist(Present_Robot->Pos_State,Aim->Pos_State)+Present_Robot->Self_Aiming_Para;
-        Attack_Robot(Present_Robot,Aim,Current_Accuracy);
+        Robot *Aim = Present_Robot->Searching_Enemy(Present_Robot);
+        float Current_Accuracy=-Accuracy_Loss* dist(Present_Robot->Get_Pos(),Aim->Get_Pos())+Present_Robot->Get_Self_Aiming();
+        Present_Robot->Attack_Robot(Present_Robot,Aim,Current_Accuracy);
     } else {
-        if (Present_Robot->Pos_State.x != Blue_Tower.Pos_State.x || Present_Robot->Pos_State.y != Blue_Tower.Pos_State.y) {
-            Present_Robot->Pos_State=Move_to(Present_Robot, Blue_Tower.Pos_State);
+        if (Present_Robot->Get_Pos().x != Blue_Tower.Get_Pos().x || Present_Robot->Get_Pos().y != Blue_Tower.Get_Pos().y) {
+            Present_Robot->Move_to(Present_Robot, Blue_Tower.Get_Pos());
             return;
         }
-        Robot *Aim = Searching_Enemy(Present_Robot);
-        float Current_Accuracy=-Accuracy_Loss* dist(Present_Robot->Pos_State,Aim->Pos_State)+Present_Robot->Self_Aiming_Para;
-        Attack_Robot(Present_Robot,Aim,Current_Accuracy);
+        Robot *Aim = Present_Robot->Searching_Enemy(Present_Robot);
+        float Current_Accuracy=-Accuracy_Loss* dist(Present_Robot->Get_Pos(),Aim->Get_Pos())+Present_Robot->Get_Self_Aiming();
+        Present_Robot->Attack_Robot(Present_Robot,Aim,Current_Accuracy);
     }
 }

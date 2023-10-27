@@ -19,6 +19,7 @@ public:
     inline int Get_HP();
     inline void HP_Loss(int loss);
     inline CampTypeDef Get_Camp();
+    inline RobotPos Get_Pos();
     Architecture();
 };
 
@@ -35,7 +36,11 @@ inline int Architecture::Get_HP(){
 }
 
 inline void Architecture::HP_Loss(int loss) {
-    HP-=loss;
+    HP=loss;
+}
+
+inline RobotPos Architecture::Get_Pos() {
+    return Pos_State;
 }
 
 void Architect_Init();

@@ -27,7 +27,7 @@ int max(int x, int y) {
         return y;
 }
 
-RobotPos Robot :: Move_to(Robot* Present_Robot, RobotPos Des_Pos) {  //移动
+void Robot :: Move_to(Robot* Present_Robot, RobotPos Des_Pos) {  //移动
     float dis = dist(Present_Robot->Pos_State, Des_Pos);
     float tmp=Present_Robot->Robot_Speed;
     if (dis < Present_Robot->Robot_Speed){
@@ -39,7 +39,7 @@ RobotPos Robot :: Move_to(Robot* Present_Robot, RobotPos Des_Pos) {  //移动
     puts(Present_Robot->Robot_Number);
     std::printf("from %.2f,%.2f to %.2f,%.2f\n", Present_Robot->Pos_State.x, Present_Robot->Pos_State.y, End_Pos.x, End_Pos.y);
     Present_Robot->Robot_Speed=tmp;
-    return End_Pos;
+    Pos_State = End_Pos;
 }
 
 void Robot :: Attack_Tower(Robot* Attacker, float Accuracy) {  //进攻敌方先锋塔
@@ -178,7 +178,7 @@ void Robot :: Attack_Robot(Robot* Attacker,Robot* Aim,float Accuracy){
     printf("hits ");
     puts(Aim->Robot_Number);
     printf(",whose HP drops from %d to %d\n", Aim->HP_State.hp, max(Aim->HP_State.hp - Attacker->Damage, 0));
-    Aim->HP_State.hp = max(0, Aim->HP_State.hp - Attacker->Damage);
+    Aim->HP_Loss(max(0, Aim->HP_State.hp - Attacker->Damage));
     if (Aim->HP_State.hp == 0) {
         puts(Aim->Robot_Number);
         printf("has been destroyed\n");
